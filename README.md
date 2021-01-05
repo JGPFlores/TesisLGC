@@ -8,5 +8,5 @@ Recomiendo que antes de hacer la tesis en LaTeX revisen los lineamientos de su u
 
 Éxito en todo. 
 Estoy para apoyarlos y resolver cualquier duda relacionada con esta plantilla.
-jesusgpflores@gmail.com
+jesusgpflores@gmail.com ,
 jesus_perez@uaeh.edu.mx
