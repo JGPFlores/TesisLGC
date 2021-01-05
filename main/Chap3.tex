@@ -1,0 +1,56 @@
+% **************************************************
+\chapter{Título del capítulo 3: Versión laraga del título}
+\chaptermark{Versión corta del título}
+% **************************************************
+\chapterquote{Escribe una frase aquí para iniciar el \textsc{Capítulo 3}\ldots}{Autor de la frase}{Datos adicionales aquí, \oldstylenums{2004}}
+% **************************************************
+
+
+% Resumen:
+\begin{ResumenPhDThesis}
+\begin{changemargin}{1cm}{1cm}
+\lettrine[lines=3]{E}{scribir aquí} el resumen del \textsc{Capítulo 3}: \lipsum[3]
+\end{changemargin}
+\end{ResumenPhDThesis}
+
+
+% **************************************************
+\section{Introducción}
+% **************************************************
+Escribir en este apartado, una introducción del \textsc{Capítulo 3}: \lipsum[1]
+
+
+% **************************************************
+\section{Uso de ecuaciones}
+% **************************************************
+La Ecuación~\ref{Eq:BoxBehnken} es una ecuación polinomial que se describe a continuación \citep{du2014beta}.
+
+\begin{equation}\label{Eq:BoxBehnken}
+Y = \beta_{0} + \sum_{i=1}^{k} \beta_{i} X_{i} + \sum_{i=1}^{k} \beta_{ii} X_{i}^{2} + \sum_{i=1}^{k-1} \sum_{j=i+1}^{k} \beta_{ij} X_{i} X_{j}
+\end{equation}
+
+
+Donde:
+\begin{description}
+	\item $Y$ es la respuesta predicha
+	\item $\beta_{0}$ es el término compensatorio
+	\item $\beta_{i}$ es el coeficiente del efecto lineal ($X_{i}$)
+	\item $\beta_{ii}$ es el coeficiente del efecto cuadrático ($X_{i}^{2}$)
+	\item $\beta_{ij}$ es el coeficiente del efecto de interacción lineal-lineal ($X_{i} X_{j}$)
+\end{description}
+
+Texto adicional: \lipsum[5]
+
+
+% **************************************************
+\section{Conclusiones}
+% **************************************************
+Escribir las conclusiones del \textsc{Capítulo 3}: \lipsum[2]
+
+
+% **************************************************
+% Referencias
+% **************************************************
+\begin{refcontext}[sorting=nyt]
+\printbibliography[title={Referencias}, heading=subbibintoc]
+\end{refcontext}

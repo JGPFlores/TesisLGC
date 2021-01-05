@@ -1,0 +1,296 @@
+% **************************************************
+\chapter{Título del capítulo 2: Versión laraga del título}
+\chaptermark{Versión corta del título}
+% **************************************************
+\chapterquote{Escribe una frase aquí para iniciar el \textsc{Capítulo 2}\ldots}{Autor de la frase}{Datos adicionales aquí, \oldstylenums{2009}}
+% **************************************************
+
+% Resumen:
+\begin{ResumenPhDThesis}
+\begin{changemargin}{1cm}{1cm}
+\lettrine[lines=3]{E}{scribir aquí} el resumen del \textsc{Capítulo 2}: \lipsum[3]
+\end{changemargin}
+\end{ResumenPhDThesis}
+
+
+
+% **************************************************
+\section{Introducción}
+% **************************************************
+Escribir en este apartado, una introducción del \textsc{Capítulo 2}: \lipsum[1]
+
+Uso de listas con números romanos: 
+
+\begin{enumerate}[label=\roman*.]
+	\item Paso uno;
+	\item Paso dos;
+	\item Paso tres;
+	\item Paso cuatro;
+	\item Paso cinco.
+\end{enumerate}
+
+
+% **************************************************
+\section{Escribe el nombre de la sección del capítulo}
+\index{niveles!sección del capítulo}
+% **************************************************
+\lipsum[2]
+
+% **************************************************
+\subsection{Escribe el nombre de la subsección}
+\index{niveles!subsección del capítulo}
+% **************************************************
+\lipsum[2]
+
+% **************************************************
+\subsubsection{Escribe el nombre de la subsubsección}
+\index{niveles!subsubsección del capítulo}
+% **************************************************
+\lipsum[2]
+
+% **************************************************
+\paragraph{Escribe un párrafo} % Esto es en vez de una sub-sub-subsección 
+\index{niveles!párrafo}
+% **************************************************
+\lipsum[2]
+
+
+
+% **************************************************
+\section{Figuras}
+% **************************************************
+\subsection{Una figura}
+\index{insertar!figura}
+% **************************************************
+A continuación se presenta el ejemplo de cómo insertar la Figura~\ref{fig:EjemploFigura}:
+
+\begin{figure}[htp]
+	\centering
+	\includegraphics[width=1\linewidth]{FiguraX.png}
+    \caption[Título de una figura.]% Así es como aparece en el índice de figuras
+    {Título de una figura con una descripción más detallada. \lipsum[1]} % Se puede redactar una descripción con más detalles
+    \label{fig:EjemploFigura}
+\end{figure}
+
+
+% **************************************************
+\subsection{Una figura con rotación}
+\index{insertar!figura con rotación}
+% **************************************************
+
+En la Figura~\ref{fig:FiguraRotacion} se muestra una figura con rotación:
+
+%Insertar una figura con rotación
+\begin{sidewaysfigure}[htp]
+	\centering 
+	\includegraphics[width=1\linewidth]{FiguraX.png}
+    \caption[Título de una figura con rotación.]% Título que aparece en el índice de figuras
+    {Título de una figura con rotación con una descripción más detallada. \lipsum[1]} % Descripción más larga de la figura
+    \label{fig:FiguraRotacion}
+\end{sidewaysfigure}
+
+
+% **************************************************
+\subsection{Subfigura}
+\index{insertar!subfiguras}
+% **************************************************
+En la Figura~\ref{Fig:SubfigurasEjemplo} se incluyen subfiguras, es decir: La Figura~\ref{Fig:SubFig1} y la Figura~\ref{Fig:SubFig2}. 
+
+
+\begin{figure}[htp]
+   \centering
+   %%---- Primera subfigura ----
+   \subfloat[Título de la subfigura 1]{ %Es opcional
+        \label{Fig:SubFig1}         %% Etiqueta para la primera subfigura
+        \includegraphics[width=0.455\textwidth]{FiguraX.png}}
+   \hspace{0.05\linewidth}
+   %%---- Segunda subfigura ----
+   \subfloat[Título de la subfigura 2]{ %Es opcional
+        \label{Fig:SubFig2}         %% Etiqueta para la segunda subfigura
+        \includegraphics[width=0.455\textwidth]{FiguraX.png}}
+   \caption[Título de una figura con subfiguras.]%
+    {Título de una figura con subfiguras con una descripción más detallada. \lipsum[5]}
+   \label{Fig:SubfigurasEjemplo} % Etiqueta para la figura entera
+\end{figure}
+
+
+% **************************************************
+\subsection{Subfiguras con rotación}
+\index{insertar!subfiguras con rotación}
+% **************************************************
+La Figura~\ref{Fig:RotacionSubfiguras} muestra la rotación de subfiguras. Y en el texto se deben citar las subfiguras que componen esta figura: Figura~\ref{Fig:subfigA}, Figura~\ref{Fig:subfigB} y Figura~\ref{Fig:subfigC}.
+
+
+\begin{sidewaysfigure}[htp]
+   \centering
+   %%---- Primera subfigura ----
+   \subfloat[Descripción de la subfigura 1]{
+        \label{Fig:subfigA}         %% Etiqueta para la primera subfigura
+        \includegraphics[width=0.45\textwidth]{FiguraX.png}}
+   \hspace{0.05\linewidth}
+     %%---- Segunda subfigura ----
+   \subfloat[Descripción de la subfigura 2]{
+        \label{Fig:subfigB}         %% Etiqueta para la segunda subfigura
+        \includegraphics[width=0.45\textwidth]{FiguraX.png}}
+   \hspace{0.05\linewidth}
+   %%---- Tercera subfigura ----
+   \subfloat[Descripción de la subfigura 3]{
+        \label{Fig:subfigC}         %% Etiqueta para la tercer subfigura
+        \includegraphics[width=0.45\textwidth]{FiguraX.png}}
+   \caption[Título de una figura con subfiguras con rotación.]% Título de la figura como aparece en el índice de figuras 
+    {Título de naa figura con subfiguras con rotación con una descripción más detallada. \lipsum[5]} % Título de la figura con una descripción detallada
+   \label{Fig:RotacionSubfiguras} % Etiqueta para la figura entera
+\end{sidewaysfigure}
+
+
+
+% **************************************************
+\subsection{Subfiguras en diferentes páginas}
+\index{insertar!subfiguras en diferentes páginas}
+% **************************************************
+
+La Figura~\ref{fig:SubfigurasMultiplesPaginas} es un ejemplo de subfiguras en diferentes páginas. Adicionalmente, en el texto se citan cada una de las subfiguras: Figura~\ref{fig:SubfiguraX}, Figura~\ref{fig:SubfiguraY} y Figura~\ref{fig:SubfiguraZ}.
+
+
+%--Dividir un subfiguras en múltiples páginas
+\newpage
+\begin{figure}[thbp]
+	\centering
+	\subfloat[Título de la primer subfigura.]{
+	\label{fig:SubfiguraX} %% Etiqueta para la primer subfigura
+	\includegraphics[width=1\textwidth]{FiguraX.png}}
+	\caption[Título de una figura completa con subfiguras en diferentes páginas.]{Título de una figura completa con subfiguras en diferentes páginas.}
+\label{fig:SubfigurasMultiplesPaginas} % Etiqueta para la figura entera
+\end{figure}
+
+
+\newpage
+\begin{figure}[thbp]
+\ContinuedFloat
+	\centering
+	\subfloat[Título de la segunda subfigura.]{
+	\label{fig:SubfiguraY} %% Etiqueta para la segunda subfigura
+	\includegraphics[width=1\textwidth]{FiguraX.png}}
+	\caption[]{Título de una figura completa con subfiguras en diferentes páginas (cont.).} %Continuación
+\end{figure}
+
+
+\newpage
+\begin{figure}[thbp]
+\ContinuedFloat
+	\centering
+	\subfloat[Título de la tercer subfigura.]{
+	\label{fig:SubfiguraZ} %% Etiqueta para la tercer subfigura
+	\includegraphics[width=1\textwidth]{FiguraX.png}}
+	\caption[]{Título de una figura completa con subfiguras en diferentes páginas (cont.).} %Última parte.
+\end{figure}
+
+
+
+% **************************************************
+\newpage
+\section{Tablas}
+% **************************************************
+\subsection{Tabla}
+\index{insertar!tabla}
+% **************************************************
+A continuación se presenta el ejemplo de cómo insertar la Tabla~\ref{Tab:EjemploTabla}, que además contiene notas al pie de tabla:
+
+
+\begin{table}[htbp]
+	\caption{Título de una tabla.}
+	\begin{center}
+	\begin{tabular}{ l l }
+	\toprule
+	\parnoteclear
+	\parnote{Resultados expresados en g 100g\textsuperscript{-1} (bs).}Componente &
+	Contenido \\ 		
+	\midrule
+		Caramelo & 567$\pm$0.28 \\
+		Gomitas	& 945$\pm$0.22 \\
+		Paletas & 736$\pm$0.20 \\
+		Marshmallows & 978$\pm$0.34 \\
+		Chocolates & 527$\pm$0.36 \\
+		\parnote{Expresado en otras unidades.}Sustancia X	& 875$\pm$0.56 \\
+	\bottomrule
+\end{tabular}
+\end{center}
+\label{Tab:EjemploTabla}
+\parnotes
+\end{table}
+
+
+% **************************************************
+\subsection{Tabla con rotación}
+\index{insertar!tabla con rotación}
+% **************************************************
+La Tabla~\ref{tab:TablaRotacion} es un ejemplo de una tabla con rotación y con notas al pie de tabla.
+
+
+\begin{sidewaystable}[htbp]
+\caption{Título de una tabla con rotación.}
+\centering
+\begin{tabular}{ c c c c c c c c c c c }
+\toprule %------
+\parnoteclear
+	Exp. 
+	& \parnote{$X_{1}$: concentración molar, mol L\textsuperscript{-1}.}$X_{1}$  
+	& \parnote{$X_{2}$: tiempo, h.}$X_{2}$  
+	& \parnote{$X_{3}$: temperatura, $\celsius$.}$X_{3}$  
+	& \parnote{$Y_{1}$: rendimiento, \% p/p (bs).}$Y_{1}$  
+	& \parnote{$Y_{2}$: masa, g.}$Y_{2}$  
+	& \parnote{$Y_{3}$: viscosidad intrínseca ([$\eta$]), mL g\textsuperscript{-1}.}$Y_{3}$  
+	& \parnote{$Y_{4}$: masa molar (MW), kDa.}$Y_{4}$ 
+	& \parnote{$Y_{5}$: relación arabinosa-xilosa (Ara/Xyl).}$Y_{5}$ 
+	& \parnote{$Y_{6}$: contenido de ácidos hidroxicinámicos, $\mu$g mg\textsuperscript{-1} de AX.}$Y_{6}$ 
+	& \parnote{$Y_{7}$: potencial zeta ($\zeta$), mV.}$Y_{7}$ \\ 
+\midrule %------
+	1 & 0.1 & 10 & 60 & 1$\pm$0.1 & 6.73$\pm$1.02 & 50.37$\pm$0.87 & 45.85$\pm$0.45 & 0.30$\pm$0.01 & 9.47$\pm$0.12 & -16.18$\pm$1.13 \\
+\bottomrule %------
+\end{tabular}
+\label{tab:TablaRotacion}
+\begin{flushleft}
+\parnotes
+\end{flushleft}
+\end{sidewaystable}
+
+
+% **************************************************
+\newpage
+\subsection{Tabla extensa en varias páginas}
+\index{insertar!tabla extensa}
+% **************************************************
+La Tabla~\ref{tab:LongTab1} es un ejemplo de tabla que puede extenderse por varias páginas si se requiere. 
+
+%Las tablas grandes, se pueden incluir en archivos TeX independientes para un manejo más cómodo del código
+\subfile{main/LongTable1}
+
+
+
+% **************************************************
+\section{Otras citas}
+% **************************************************
+Se pueden utilizar los comandos de Bib{\TeX} para citar:
+
+\citep{iqbal2011evaluation, kamboj2014physicochemical, malunga2017effect, moate2011influence}
+
+\citet{dima2016kinetics}
+
+Por ejemplo:
+
+\citet{ahmadi2012development, zhou2014validation, bagchi2016studies} reportaron que\ldots
+
+Los resultados son acordes a los reportados en otras investigaciones \citep{vsimkovic2011positively, hromadkova2013structural, xiong2013antioxidant, coelho2016revisiting}\ldots
+
+
+% **************************************************
+\section{Conclusiones}
+% **************************************************
+Escribir las conclusiones del \textsc{Capítulo 2}: \lipsum[2]
+
+% **************************************************
+% Referencias
+% **************************************************
+\begin{refcontext}[sorting=nyt]
+\printbibliography[title={Referencias}, heading=subbibintoc]
+\end{refcontext}

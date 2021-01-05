@@ -1,0 +1,133 @@
+%
+
+\ProvidesPackage{UAEHThesis}[2014/06/11 v1.01 (Pérez-Flores, 2019)]
+
+\RequirePackage{graphicx}
+\RequirePackage{setspace}
+
+\oddsidemargin 0.25in
+\evensidemargin 0in
+
+\topmargin 0in
+\headheight 0in			% no header
+\headsep \headheight
+
+\textwidth 6.25in
+\textheight 8.5in
+
+\footskip .4in
+
+\doublespacing
+\def\baselinestretch{1.5}
+
+
+%% End of formatting parameters %%
+
+%% Define all the pieces that go on the title page and the abstract.
+
+% \title and \author already exist
+
+\def\logouaeh#1{\gdef\@logouaeh{#1}}
+\def\@logouaeh{Escudo-UAEH}
+
+\def\logoinstitute#1{\gdef\@logoinstitute{#1}}
+\def\@logoinstitute{Escudo-ICAp}
+
+\def\Uaeh{Universidad Aut\'{o}noma del Estado de Hidalgo}
+\def\UAEH{\uppercase\expandafter{\Uaeh}}
+\def\university#1{\gdef\Uaeh{#1}\gdef\UAEH{\uppercase\expandafter{\Uaeh}}}
+
+\def\institute#1{\institutem{#1}}
+\def\rcenter#1{\institutem{#1}}
+\def\faculty#1{\institutef{#1}}
+\def\school#1{\institutef{#1}}
+\def\institutem#1{\@instituteartm\gdef\@institute{#1}}
+\def\institutef#1{\@instituteartf\gdef\@institute{#1}}
+\def\@instituteartm{\gdef\@instituteart{el}}
+\def\@instituteartf{\gdef\@instituteart{la}}
+\def\@instituteart{la}  % For side effect of excluding an institution
+
+\def\department#1{\gdef\@department{#1}}
+\def\@department{}
+
+\def\supervisor#1{\gdef\@supervisor{#1}}
+
+\def\prevdegrees#1{\gdef\@prevdegrees{#1}}
+\def\@prevdegrees{}
+
+% If you are getting two degrees, use \and between the names.
+\def\degree#1{\setbox0\hbox{#1}	 %for side effect of setting \@degreeart
+  \gdef\@degree{#1}}
+% \and is used inside the \degree argument to separate two degrees
+\def\and{\gdef\@degreeart{los grados} \par y \par}
+\def\@degreeart{el grado}
+
+% Use \date as \thesisdate
+\let\@thesisdate=\@date
+\def\date#1{\gdef\@date{#1}\gdef\@thesisdate{#1}}
+
+% typically just a month and year
+\def\degreemonth#1{\gdef\@degreemonth{#1}}
+\def\degreeyear#1{\gdef\@degreeyear{#1}}
+
+\def\city#1{\gdef\@city{#1}}
+
+\supervisor{supervisor undefined}
+\degree{degree undefined}
+\degreemonth{degreemonth undefined}
+\degreeyear{degreeyear undefined}
+
+%% Define all the environments needed for the frontmatter
+%% The make* are command versions of every environment,
+%% useful to interface with Scientific Workplace
+
+
+
+\def\maketitle{
+\begin{titlepage}
+% Left layout - Logos
+\begin{minipage}[c][9in][s]{1in}
+\centering
+\includegraphics[width=1in]{\@logouaeh}\\[10pt]
+\hskip 2pt\vrule width 2pt height 6.7in
+\hskip 1mm\vrule width 1pt height 6.7in\\[10pt]
+\includegraphics[width=0.8in]{\@logoinstitute}
+\end{minipage}\hskip 10pt
+% Right layout - Titles
+\begin{minipage}[c][\textheight][s]{5.125in}
+\centering
+% University, institute, department and title
+{\Large\scshape\Uaeh}
+\vspace{3mm}\hrule height2pt
+\vspace{1mm}\hrule height1pt
+\vspace{3mm}
+\@ifundefined{@institute}{\relax}{{\large\scshape\@institute}\\[3pt]}
+\vspace{3mm} %Este espacio fue agergado después
+{\scshape\@department}\par
+% Title
+\vfill\vfill
+{\def\baselinestretch{1}\Large\scshape\@title\par} %Cambiar el tamaño del título
+\vfill\vfill
+% Degree, author, supervisor and date
+\makebox[8cm][s]{\Huge T E S I S}\\[8pt]
+QUE PARA OBTENER EL GRADO DE:\\[3pt]
+{\scshape\@degree}\\[16pt]
+PRESENTA:\\[3pt]
+{\scshape\@author}\par
+\vfill
+{\small DIRECCIÓN:\\{\scshape\@supervisor}}\par
+\vfill
+{\scshape\@city\hfill\@degreemonth, \@degreeyear}
+\end{minipage}
+\end{titlepage}
+}
+
+% You can use the titlepage environment to do it all yourself if you don't want to use \maketitle.  In the titlepage environment, the paragraph skip is infinitely stretchable, so if you leave a blank line. Between lines that you want space between, the space will stretch so that the title page fills up the entire page.
+\renewenvironment{titlepage}
+{\newpage\thispagestyle{empty}
+\parindent 0pt \parskip 10pt plus 1fil minus 1fil
+\def\baselinestretch{1}\@normalsize\vbox to \vsize\bgroup\vbox to 8.9in\bgroup}
+% The \kern0pt pushes any depth into the height.
+{\par\kern 0pt\egroup\vss\egroup\newpage}
+
+

@@ -1,0 +1,97 @@
+% **************************************************
+\chapter{Título del capítulo 1: Versión laraga del título}
+\chaptermark{Versión corta del título}
+% **************************************************
+\chapterquote{Escribe una frase aquí para iniciar el \textsc{Capítulo 1}\ldots}{Autor de la frase}{Datos adicionales aquí, \oldstylenums{2004}}
+% **************************************************
+
+
+% Resumen:
+\begin{ResumenPhDThesis}
+\begin{changemargin}{1cm}{1cm}
+\lettrine[lines=3]{E}{scribir aquí} el resumen del \textsc{Capítulo 1}: \lipsum[3]
+\end{changemargin}
+\end{ResumenPhDThesis}
+
+
+% **************************************************
+\section{Introducción}
+\index{xilanos}
+% **************************************************
+El capítulo 1 se trata de los antecedentes generales de la investigación, puede ser una revisión. Escribir en este apartado, una introducción del \textsc{Capítulo 1}: \lipsum[3]
+
+
+% **************************************************
+\section{Uso de acrónimos}
+% **************************************************
+Aquí se presenta un ejemplo del uso de acrónimos: Los \acf{AX} poseen una cadena principal de \acf{BDXylp} unidos mediante enlaces $\beta$-(1$\rightarrow$4), a los que se unen grupos de  \acf{aLAraf} que están unidos mediante enlaces $\alpha$-(1$\rightarrow$3) y/o $\alpha$-(1$\rightarrow$2) \citep{perez2019physicochemical}. 
+
+\lipsum[2]
+
+
+% **************************************************
+\section{Fórmulas químicas}
+% **************************************************
+En este documento tambien se puede hacer uso de símbolos y fórmulas químicas gracias al paquete \textbf{mhchem}, de la siguiente manera: se ha realizado extracción de AX con \ce{NaOH}, \ce{KOH}, \ce{Ba(OH)2} y \ce{Ca(OH)2}. De igual manera, se han utilizado diferentes combinaciones de medio básico con \ce{H2O2}, \ce{NaBH4}, \ce{Na2SO3}, \ce{Na2S2O4} y \ce{NaClO2}.
+
+Iones: \ce{Pb^2+}, \ce{Ca^2+}.
+
+Enlaces: \ce{C-H}.
+
+Sales: \ce{CaCl2.H2O}, \ce{FeCl2.4H2O}, \ce{K2CO3}, \ce{(NH4)2S2O8} y \ce{FeCl3.6H2O}.
+
+Radicales hidroxilo: \lewis{4.,OH}.
+
+Otros: $\beta$-{\scriptsize D}-{X}yl\textit{p}.
+
+
+
+% **************************************************
+\section{Citas}
+% **************************************************
+\subsection{Varios papers en el mismo año}
+% **************************************************
+En esta tesis se utilizó Bib{\LaTeX} para citar en formato APA, sexta edición. Se pueden comprimir las citas cuando hay varias publicaciones del mismo autor en el mismo año: \citep{king200nonstationary, king2000semiparametric, king2001gaussian,king2001regression}.
+
+Primera vez: \citep{wang2012optimization}.
+
+Segunda vez: \citep{wang2012optimization}.
+
+Primera vez: \citep{wang2014optimisation}.
+
+Segunda vez: \citep{wang2014optimisation}.
+
+Juntos: \citep{wang2014optimisation, wang2012optimization}.
+
+
+% **************************************************
+\subsection{Varios casos}
+% **************************************************
+Menos de 6 autores por primera vez: \citep{rosicka2016influence}.
+
+Menos de 6 autores por segunda vez: \citep{rosicka2016influence}
+
+Más de 6 autores por primera vez: \citep{perez2019physicochemical}.
+
+Más de 6 autores en el mismo año: \citep{bender2017optimization,bender2017chemical}.
+
+Varios autores en orden cronológico: \citep{zhang2014extraction, gonzalez2015covalently, rosicka2016influence}.
+
+Sólo 2 autores por primera vez: \citep{kamboj2014physicochemical}.
+
+Sólo 2 autores por segunda vez: \citep{kamboj2014physicochemical}.
+
+
+
+% **************************************************
+\section{Conclusiones}
+% **************************************************
+Escribir las conclusiones del \textsc{Capítulo 1}: \lipsum[2]
+
+
+% **************************************************
+% Referencias
+% **************************************************	
+\begin{refcontext}[sorting=nyt]
+\printbibliography[title={Referencias}, heading=subbibintoc]
+\end{refcontext}
