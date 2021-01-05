@@ -1,0 +1,60 @@
+% **************************************************
+% TESIS: Título de la tesis doctoral
+% EDITOR: Jesús Guadalupe P. Flores
+% LUGAR Y FECHA: Mineral de la Reforma, Hidalgo, México. 2021.
+% **************************************************
+
+% **************************************************
+% Definición de documento:
+% **************************************************
+\documentclass{book}
+\usepackage{LauraGC}
+
+\input{References.tex}
+\input{Backbone.tex}
+
+\graphicspath{{pictures/}} % Localizacion de las figuras
+
+	\makeindex % Crear índice
+
+
+\begin{document}
+% **************************************************
+% Comienza la escritura del documento:
+% **************************************************
+	\includepdf[pages=1-2]{front/PORTADA}
+	\includepdf[pages=1-2]{front/PortadaTesis} %[pages=inicial-final]{nombre_del_documento}
+	\includepdf[pages=1-2]{front/AutorizacionDeImpresion}
+	\input{./front/Dedicatoria.tex} % Dedicatoria
+	\input{./front/Agradecimientos.tex} % Agradecimientos
+
+% **************************************************
+\frontmatter %InicioDocumento
+% **************************************************
+	\tableofcontents %Índice general
+	\listoffigures %Índice de Figuras
+	\listoftables %Índice de Tablas
+
+	\include{front/Acronimos} % Lista de acrónimos
+	\include{front/Abstract} % Abstract
+	\include{front/Resumen} % Resumen
+
+% **************************************************
+\mainmatter %ContenidoPrincipal
+% **************************************************
+
+	\include{main/Chap1} %Capítulo 1
+	\include{main/Chap2} %Capítulo 2
+	\include{main/Chap3} %Capítulo 3
+
+% **************************************************
+\backmatter %FinalDocumento
+% **************************************************
+	\phantomsection
+	\printindex
+	\cleardoublepage
+
+
+	\includepdf[pages=1-2]{back/CONTRAPORTADA}
+
+\end{document}

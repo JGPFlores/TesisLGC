@@ -1,0 +1,167 @@
+% **************************************************
+% LauraGC.sty
+% --- A LaTeX Style for Thesis Documents ---
+% **************************************************
+\ProvidesPackage{LauraGC}
+          [2019/07/25 v1.01 (Pérez-Flores J.G., 2016)]
+
+% **************************************************
+% Definición de colores:
+% **************************************************
+\RequirePackage[dvipsnames,svgnames,table]{xcolor}
+	\definecolor{iColor001}{HTML}{000000}  % Negro
+	\definecolor{iColor002}{HTML}{FFFFFF}  % Blanco
+	\definecolor{iColor003}{HTML}{0067FF}  % Deep Sky Blue
+	\definecolor{iColor004}{HTML}{A1A1A1}  % Gainsboro Gray: B6B6B6, gris oscuro: 535353
+
+
+% **************************************************
+% Fuentes utilizadas (Ver http://www.tug.dk/FontCatalogue/):
+% **************************************************
+\RequirePackage[T1]{fontenc}
+
+\newcommand{\dedicatoriafont}{\fontfamily{jkplos}\fontseries{m}\fontsize{11}{11}\selectfont}
+\newcommand{\comilla}{\fontfamily{pbk}\fontseries{m}\fontsize{11}{13}\selectfont}
+\newcommand{\quotefont}{\fontfamily{cmr}\fontseries{m}\fontsize{9}{10}\selectfont} %qcs, qpl, qtm, cmr*
+
+%Personalización del encabezado de los capítulos (FORMATO 002)
+\newcommand{\chaptertitle}{\fontfamily{lmdh}\fontseries{m}\fontsize{22}{30}\selectfont} %18/26
+\newcommand{\chapnum}{\fontfamily{jkplos}\fontseries{m}\fontsize{60}{40}\selectfont}
+\newcommand{\chaplabel}{\fontfamily{jkplos}\fontseries{m}\fontsize{10}{20}\selectfont}
+
+
+% **************************************************
+%	Formato del título de los capítulos:
+% **************************************************
+\RequirePackage{titlesec} % Activar para el Formato 001 o el Formato 002
+
+\newcommand*\HUGE{\Huge}
+\newcommand*\chapnamefont{\chaplabel\MakeUppercase} %Etiqueta "capítulo"
+\newcommand*\chapnumfont{\chapnum} %Número del capítulo
+\newcommand*\chaptitlefont{\chaptertitle} %Nombre del capítulo
+
+\titleformat{\chapter}[display]
+  {\centering\normalfont} %centrar etiqueta "capítulo"
+  {\chapnamefont\chaptertitlename~\\ \chapnumfont\thechapter}
+  {25pt}
+  {\centering\chaptitlefont}
+\titlespacing*{\chapter}
+  {40pt}{-1em}
+  {40pt}
+
+
+% **************************************************
+%	Entorno del resumen:
+% ************************************************** 
+\newcommand\resumenname{Resumen}
+\newenvironment{ResumenPhDThesis}%
+    {
+    \begin{center}
+    \bfseries \resumenname
+    \end{center}
+    }
+
+
+% **************************************************
+%	Cambiar el margen de un párrafo:
+% **************************************************
+\def\changemargin#1#2{\list{}{\rightmargin#2\leftmargin#1}\item[]}
+\let\endchangemargin=\endlist 
+
+
+% **************************************************
+%	Configuración de márgenes y espaciado:
+% **************************************************
+\RequirePackage[
+	final,
+	stretch=10,
+	protrusion=true,
+	tracking=true,
+	spacing=on,
+	kerning=on,
+	expansion=true]{microtype} % Slightly tweak font spacing for aesthetics
+
+\linespread{1.05} % Line spacing: Palatino necesita más espacio entre líneas
+
+%\RequirePackage[hmarginratio=1:1,top=32mm,columnsep=20pt]{geometry} % Document margins
+\RequirePackage[lmargin=3cm,rmargin=4cm,marginparwidth=6cm,marginparsep=2em,columnsep=20pt]{geometry} 
+
+
+% **************************************************
+% Citas al inicio de un capítulo:
+% **************************************************
+\newcommand{\hugequote}{%
+	{\comilla\fontsize{75}{80}\selectfont% \fontsize{75}{80}
+	\hspace*{-.475em}\color{iColor004}%
+	\textit{\glqq}% \glqq •\grqq
+	\vskip -.26em}%
+}
+
+\newcommand{\chapterquote}[3]{%
+	\begin{minipage}{1\textwidth}%1
+		\begin{center} %center
+			\begin{minipage}{0.60\textwidth}% 0.70
+			\quotefont\selectfont%
+				\begin{flushleft} %flushleft
+					{\hugequote}~	\textit{#1} %Frase
+				\end{flushleft} %flushleft
+	    		\begin{flushright}
+    				--- #2 \\ %\textcolor{iColor003}{--- \textbf{#2}}
+    				(#3)
+		    	\end{flushright}
+		    \end{minipage}%
+		\end{center} %center
+	\end{minipage}%	  
+	\bigskip
+	\bigskip
+}
+
+
+% **************************************************
+%	Formato de la letra capital:
+% **************************************************
+\RequirePackage{lettrine}
+\setlength{\DefaultNindent}{0em}
+\setcounter{DefaultLines}{3}
+\input Zallman.fd %GoudyIn.fd Konanur.fd Acorn.fd Zallman.fd*
+\newcommand*\initfamily{\usefont{U}{Zallman}{xl}{n}} 
+\renewcommand{\LettrineFontHook}{\initfamily}
+
+
+% **************************************************
+%	Formato de etiquetas y rótulos:
+% **************************************************
+\RequirePackage{caption}
+\captionsetup{
+	margin=10pt,
+%	font={small,sl},
+	font={small},
+%	labelfont={color=iColor003,bf}
+	labelfont={bf}
+	}
+
+
+% **************************************************
+%	Configuración de tablas:
+% **************************************************
+\RequirePackage{array}
+\RequirePackage{longtable}
+\RequirePackage{ltablex}
+\RequirePackage{booktabs} % Tablas de libros
+\RequirePackage{tabularx} % Otro entorno distinto
+\RequirePackage{rotating} % Comando para rotar tablas y figuras
+\RequirePackage{float}
+\newlength{\mycolwidth}
+
+
+% **************************************************
+%	Configuración de pies de tabla:
+% **************************************************
+\RequirePackage[roman]{parnotes}
+\makeatletter
+\def\parnoteclear{%
+    \gdef\PN@text{}%
+    \parnotereset
+}
+\makeatother
+

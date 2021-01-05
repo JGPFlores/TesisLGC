@@ -1,0 +1,73 @@
+% **************************************************
+% Cargar y configurar el paquete BibLaTeX:
+% **************************************************
+\usepackage[
+	natbib = true,
+	backend = biber,
+	style = authoryear-comp,
+	citetracker = true,
+	maxcitenames = 1,
+	bibstyle  = apa,
+	uniquename = false,
+	refsection = chapter,
+	sortcites = true,
+	sorting   = ynt
+	]{biblatex}
+
+\DeclareLanguageMapping{spanish}{spanish-apa}
+
+
+% **************************************************
+% Usar la compresión, excepto la primera vez:
+% **************************************************
+\AtEveryCitekey{\maxminformat} % Citar todos los autores
+\def\fls{\setcounter{maxnames}{6}\clearfield{namehash}} %Primera vez que se van a citar menor a 6 autores
+\def\nfgt{\setcounter{minnames}{1}\setcounter{maxnames}{1}} %no primera vez y mayor a 2 autores
+\def\flt{\setcounter{maxnames}{\value{labelname}}} %primera vez y menor que 2 autores
+
+\def\maxminformat{%
+	\ifnumgreater{\value{labelname}}{2} %Si el número mayor de autores fuera 2
+	{\ifciteseen
+	{\nfgt}
+	{\fls}}
+    {\flt}}
+
+
+% **************************************************
+% Add a comma and replace "and" with "&" before last coauthor:
+% **************************************************
+\DeclareDelimFormat{finalnamedelim}
+	{\ifnum\value{liststop}>2 \finalandcomma\fi\addspace\&\space}
+
+
+% **************************************************
+% Comma before ampersand in last author bibliography apa-biblatex
+% **************************************************  
+\DefineBibliographyExtras{spanish}{\def\finalandcomma{\addcomma}}
+
+\DeclareDelimFormat[bib,biblist]{finalnamedelim}{%
+  \ifthenelse{\value{listcount}>\maxprtauth}
+    {}
+    {\addcomma\space\&\space}}
+
+
+% **************************************************
+% Reemplazar el "y col." por et al.:
+% **************************************************	
+\DefineBibliographyStrings{spanish}{%
+    andothers = {\it et\addabbrvspace al\adddot}
+}
+
+
+% **************************************************
+%Cargamos los ficheros con las referencias:
+% **************************************************	
+
+% Referencias del CAPÍTULO 1:
+\addbibresource{main/RefChap1.bib}
+
+% Referencias del CAPÍTULO 2:
+\addbibresource{main/RefChap2.bib}
+
+% Referencias del CAPÍTULO 3:
+\addbibresource{main/RefChap3.bib}

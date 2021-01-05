@@ -1,0 +1,82 @@
+% **************************************************
+%	Configuración del idioma:
+% **************************************************
+\usepackage[utf8]{inputenc}
+\usepackage[english, spanish, es-tabla]{babel}
+\selectlanguage{spanish}
+
+
+% **************************************************
+%	Paquetes:
+% **************************************************
+\usepackage{lipsum} % Incluir texto en latín de relleno
+\usepackage{subfiles} %incluir tablas a manera de sub-archivos
+\usepackage[version=4]{mhchem} %escribir símbolos químicos en el texto
+\usepackage{chemfig} %estructuras químicas
+\usepackage{amsmath,amsthm,amsfonts,amssymb,gensymb,textcomp}
+\usepackage{fourier-orns}
+\usepackage{graphicx} % Insertar figuras
+\usepackage{subfig} % Insertar subfiguras
+\usepackage{lscape} %no rotation of the page 
+\usepackage{listings}
+\usepackage{tikz}
+\usepackage[final]{pdfpages} %Configuración de PDF Externos
+\usepackage{makeidx} % Índice alfabético
+\usepackage[printonlyused,withpage]{acronym} % Crear lista de acrónimos.
+\usepackage{comment} %Insertar entornos de comentarios
+\usepackage{enumitem} %Enlistar con números romanos
+\usepackage[numbib]{tocbibind} %Agrega índices referencias y tablas de contenidos
+\spanishdecimal{.} %Cambia las comas por puntos en los números
+
+
+% **************************************************
+%	Configuración de secciones:
+% **************************************************
+\usepackage{titlesec}
+\setcounter{secnumdepth}{3} %enumerar sub-subsecciones
+%\setcounter{tocdepth}{3}  %para que las sub-subsecciones aparezcan en el índice
+
+
+% **************************************************
+%	Formato de hipervínculos y datos del editor:
+% **************************************************
+\usepackage{hyperref}
+\hypersetup{
+	colorlinks=true,
+	citecolor=iColor003,
+	filecolor=iColor003,
+	linkcolor=iColor003,
+	urlcolor=iColor003,
+	bookmarksopen=true,
+	pdfpagelayout=TwoPageRight,
+	pdftitle={Título de la tesis},
+	pdfauthor={Jesús Guadalupe Pérez Flores},
+	pdfsubject={Tesis doctoral},
+	pdfproducer={LaTeX},
+	pdfkeywords={Palabras, clave, de, la, tesis}
+}
+
+
+% **************************************************
+%	Ajustar longitud de la barra sobre la X:
+% **************************************************
+\makeatletter
+\newcommand*{\Xbar}{}%
+\DeclareRobustCommand*{\Xbar}{%
+  \mathpalette\@Xbar{}%
+}
+\newcommand*{\@Xbar}[2]{%
+  \sbox0{$#1\mathrm{x}\m@th$}%
+  \sbox2{$#1x\m@th$}%
+  \rlap{%
+    \hbox to\wd2{%
+      \hfill
+      $\overline{%
+        \vrule width 0pt height\ht0 %
+        \kern\wd0 %
+      }$%
+    }%
+  }%
+  \copy2 %
+}
+\makeatother
